@@ -43,7 +43,7 @@ class _MyAppState extends State<MyApp> {
         themeMode: themeManager.themeMode,
         routes: {
           '/': (context) => const loading(),
-          '/home': (context) =>  home(),
+          '/home': (context) =>  const home(),
           '/location': (context) => const loading(),
         }
     );
