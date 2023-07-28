@@ -3,6 +3,7 @@ import 'dart:ffi';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:projecttest/pages/main.dart';
+import 'package:projecttest/pages/profile.dart';
 import 'package:projecttest/pages/statics.dart';
 
 import '../expenses/list.dart';
@@ -23,7 +24,8 @@ class home extends StatefulWidget {
   State<home> createState() => _homeState();
 }
 
-class _homeState extends State<home> {
+class _homeState extends State<home> {var widget_list;
+  get widjet_list=>(exp_list.map((e)=>Expanses(item:e))).toList();
   void addItem(Map<String, dynamic> newItem) {
     // Add the new item to the list.
     setState(()=>{exp_list.add(newItem)});
@@ -45,15 +47,16 @@ class _homeState extends State<home> {
         appBar: AppBar(
           leading: IconButton(
             icon: const Icon(Icons.home),
-            onPressed: () {},
+            onPressed: () {Navigator.pushReplacementNamed(context, '/home');},
           ),
           title: const Center(child: Text("MASROUFEK")),
-          actions: [
+          actions: [IconButton(onPressed: (){Navigator.pushReplacementNamed(context, '/login');}, icon: Icon(Icons.login_rounded)) ,
             Switch(
                 value: themeManager.themeMode == ThemeMode.dark,
                 onChanged: (newValue) {
                   themeManager.toggletheme(newValue);
-                })
+                }),
+
           ],
           bottom: TabBar(
             tabs: <Widget>[
@@ -77,7 +80,7 @@ class _homeState extends State<home> {
 
              const expanses_page(),
             ExpenseContainer( ),
-            Container(),
+            const profile(),
 
 
           ],
