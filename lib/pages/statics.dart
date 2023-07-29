@@ -128,33 +128,31 @@ class ExpenseContainer extends StatelessWidget {
               ),
               SizedBox(
                 height: 330,
-                child: Expanded(
-                  child: SfCircularChart(
-                    legend: const Legend(
-                      toggleSeriesVisibility: false,
-                      isVisible: true,
-                      overflowMode: LegendItemOverflowMode.wrap,
-                      position: LegendPosition.bottom,
-                      textStyle: TextStyle(color: Colors.black26, fontSize: 10),
-                    ),
-                    series: [
-                      DoughnutSeries(
-                        cornerStyle: CornerStyle.bothFlat,
-                        animationDelay: 1,
-                        dataSource: (cats.map((e) => {
-                              "cat": e,
-                              "amount": getSumOfAmounts(exp_list, cat: e),
-                            })).toList(),
-                        xValueMapper: (var data, _) => data["cat"],
-                        yValueMapper: (var data, _) =>
-                            double.parse(data["amount"].toStringAsFixed(1)),
-                        dataLabelSettings: const DataLabelSettings(
-                            isVisible: true,
-                            textStyle:
-                                TextStyle(color: Colors.black, fontSize: 20)),
-                      )
-                    ],
+                child: SfCircularChart(
+                  legend: const Legend(
+                    toggleSeriesVisibility: false,
+                    isVisible: true,
+                    overflowMode: LegendItemOverflowMode.wrap,
+                    position: LegendPosition.bottom,
+                    textStyle: TextStyle(color: Colors.black26, fontSize: 10),
                   ),
+                  series: [
+                    DoughnutSeries(
+                      cornerStyle: CornerStyle.bothFlat,
+                      animationDelay: 1,
+                      dataSource: (cats.map((e) => {
+                            "cat": e,
+                            "amount": getSumOfAmounts(exp_list, cat: e),
+                          })).toList(),
+                      xValueMapper: (var data, _) => data["cat"],
+                      yValueMapper: (var data, _) =>
+                          double.parse(data["amount"].toStringAsFixed(1)),
+                      dataLabelSettings: const DataLabelSettings(
+                          isVisible: true,
+                          textStyle:
+                              TextStyle(color: Colors.black, fontSize: 20)),
+                    )
+                  ],
                 ),
               ),
               SizedBox(

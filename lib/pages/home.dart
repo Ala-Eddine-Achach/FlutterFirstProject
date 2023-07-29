@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:projecttest/pages/main.dart';
+import 'package:projecttest/main.dart';
 import 'package:projecttest/pages/profile.dart';
 import 'package:projecttest/pages/statics.dart';
 

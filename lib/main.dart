@@ -3,8 +3,8 @@ import 'package:projecttest/pages/home.dart';
 import 'package:projecttest/temes_/theme_manager.dart';
 import 'package:projecttest/temes_/themesdata.dart';
 
-import 'Loading.dart';
-import 'login.dart';
+import 'pages/Loading.dart';
+import 'pages/login.dart';
 
 void main() => runApp(MyApp());
 class MyApp extends StatefulWidget {
