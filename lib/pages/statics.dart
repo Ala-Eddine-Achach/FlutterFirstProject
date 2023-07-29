@@ -1,13 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:percent_indicator/percent_indicator.dart';
 import 'package:projecttest/expenses/widget.dart';
-import 'package:projecttest/pages/home.dart';
 import 'package:syncfusion_flutter_charts/charts.dart';
 
 import '../expenses/list.dart';
 
 class ExpenseContainer extends StatelessWidget {
-  var sal = Salary;
+  final sal = Salary;
 
   double getSumOfAmounts(List<Map<String, dynamic>> exp_list,
       {String cat = "all"}) {
@@ -18,7 +17,9 @@ class ExpenseContainer extends StatelessWidget {
     }
     return sum_of_amounts;
   }
+
   get spent => getSumOfAmounts(exp_list);
+
   ExpenseContainer({super.key});
 
   @override
@@ -86,8 +87,7 @@ class ExpenseContainer extends StatelessWidget {
                     radius: 70,
                     lineWidth: 20,
                     percent: spent / sal,
-                    backgroundColor:
-                        Theme.of(context).scaffoldBackgroundColor,
+                    backgroundColor: Theme.of(context).scaffoldBackgroundColor,
                     progressColor: Color.lerp(Colors.orange,
                         Theme.of(context).scaffoldBackgroundColor, 0.5),
                     circularStrokeCap: CircularStrokeCap.round,
@@ -103,7 +103,7 @@ class ExpenseContainer extends StatelessWidget {
                 ]),
           )),
       Container(
-        margin: const EdgeInsets.symmetric(horizontal: 20, vertical:5),
+        margin: const EdgeInsets.symmetric(horizontal: 20, vertical: 5),
         decoration: BoxDecoration(
             borderRadius: const BorderRadius.all(Radius.circular(20.0)),
             color: (Theme.of(context).brightness == Brightness.dark
@@ -130,17 +130,15 @@ class ExpenseContainer extends StatelessWidget {
                 height: 330,
                 child: Expanded(
                   child: SfCircularChart(
-                    
                     legend: const Legend(
-                        toggleSeriesVisibility: false,
-                        isVisible: true,
-                        overflowMode: LegendItemOverflowMode.wrap,
-                        position: LegendPosition.bottom,
-                        textStyle:
-                            TextStyle(color: Colors.black26, fontSize: 10),),
+                      toggleSeriesVisibility: false,
+                      isVisible: true,
+                      overflowMode: LegendItemOverflowMode.wrap,
+                      position: LegendPosition.bottom,
+                      textStyle: TextStyle(color: Colors.black26, fontSize: 10),
+                    ),
                     series: [
                       DoughnutSeries(
-
                         cornerStyle: CornerStyle.bothFlat,
                         animationDelay: 1,
                         dataSource: (cats.map((e) => {
@@ -148,7 +146,8 @@ class ExpenseContainer extends StatelessWidget {
                               "amount": getSumOfAmounts(exp_list, cat: e),
                             })).toList(),
                         xValueMapper: (var data, _) => data["cat"],
-                        yValueMapper: (var data, _) => data["amount"],
+                        yValueMapper: (var data, _) =>
+                            double.parse(data["amount"].toStringAsFixed(1)),
                         dataLabelSettings: const DataLabelSettings(
                             isVisible: true,
                             textStyle:
@@ -158,7 +157,9 @@ class ExpenseContainer extends StatelessWidget {
                   ),
                 ),
               ),
-              SizedBox(height:40 ,),
+              SizedBox(
+                height: 40,
+              ),
               Container(
                 child: Column(
                   children:

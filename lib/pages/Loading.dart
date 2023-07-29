@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 class loading extends StatefulWidget {
@@ -14,11 +13,11 @@ class _loadingState extends State<loading> {
   void initState() {
     super.initState();
     navigateToHomePage();
+    Navigator.pushReplacementNamed(context, '/home');
   }
 
   Future<void> navigateToHomePage() async {
     await Future.delayed(const Duration(seconds: 3));
-    Navigator.pushReplacementNamed(context, '/home');
   }
   @override
   Widget build(BuildContext context) {

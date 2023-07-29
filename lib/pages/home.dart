@@ -1,6 +1,3 @@
-import 'dart:ffi';
-
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:projecttest/pages/main.dart';
 import 'package:projecttest/pages/profile.dart';
@@ -17,28 +14,36 @@ List<String> titles = <String>[
 ];
 
 
-class home extends StatefulWidget {
-  const home({super.key});
+class Home extends StatefulWidget {
+  const Home({super.key});
 
   @override
-  State<home> createState() => _homeState();
+  State<Home> createState() => _HomeState();
 }
 
-class _homeState extends State<home> {var widget_list;
-  get widjet_list=>(exp_list.map((e)=>Expanses(item:e))).toList();
+class _HomeState extends State<Home> {
+  var widget_list;
+
+  get widjet_list => (exp_list.map((e) => Expanses(item: e))).toList();
+
   void addItem(Map<String, dynamic> newItem) {
     // Add the new item to the list.
-    setState(()=>{exp_list.insert(0, newItem)});}
+    setState(() => {exp_list.insert(0, newItem)});
+  }
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    setState(() {});
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
-
     final ColorScheme colorScheme = Theme.of(context).colorScheme;
     final Color oddItemColor = colorScheme.primary.withOpacity(0.05);
     final Color evenItemColor = colorScheme.primary.withOpacity(0.15);
     const int tabsCount = 3;
-
-
 
     return DefaultTabController(
       length: 3,
@@ -54,7 +59,9 @@ class _homeState extends State<home> {var widget_list;
             Switch(
                 value: themeManager.themeMode == ThemeMode.dark,
                 onChanged: (newValue) {
-                  themeManager.toggletheme(newValue);
+                  setState(() {
+                    themeManager.toggletheme(newValue);
+                  });
                 }),
 
           ],
@@ -77,20 +84,16 @@ class _homeState extends State<home> {var widget_list;
         ),
         body: TabBarView(
           children: <Widget>[
-
-             const expanses_page(),
-            ExpenseContainer( ),
-             Profile(),
-
-
+            const Expanses_Page(),
+            ExpenseContainer(),
+            Profile(),
           ],
         ),
         floatingActionButton: FloatingActionButton(
           child:const Icon(Icons.plus_one),
           onPressed: () { setState(() {
             AddItem(context,addItem) ;
-            print(exp_list[exp_list.length-1]);
-          });},
+            });},
 
         ),
 

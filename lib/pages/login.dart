@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 
-import 'main.dart';
-
 class login extends StatefulWidget {
   const login({super.key});
 
@@ -156,29 +154,31 @@ class _loginState extends State<login> {
                 children:  [
                   // google button
                   Container(
-                    padding: EdgeInsets.all(20),
+                    padding: const EdgeInsets.all(20),
                     decoration: BoxDecoration(
                       border: Border.all(color: Colors.white),
                       borderRadius: BorderRadius.circular(16),
                       color: Colors.grey[200],
                     ),
-                    child: Image.asset(fit: BoxFit.cover,
+                    child: Image.asset(
+                      fit: BoxFit.cover,
                       "images/google.png",
                       height: 35,
                     ),
                   ),
 
-                  SizedBox(width: 25),
+                  const SizedBox(width: 25),
 
                   // apple button
                   Container(
-                    padding: EdgeInsets.all(20),
+                    padding: const EdgeInsets.all(20),
                     decoration: BoxDecoration(
                       border: Border.all(color: Colors.white),
                       borderRadius: BorderRadius.circular(16),
                       color: Colors.grey[200],
                     ),
-                    child: Image.asset(//fit: BoxFit.cover,
+                    child: Image.asset(
+                      //fit: BoxFit.cover,
                       "images/fb.png",
                       height: 35,
                     ),
