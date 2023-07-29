@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 import '../expenses/list.dart';
+import 'ERRor.dart';
 
 
 
@@ -76,9 +77,13 @@ Future<void> AddItem(BuildContext context,Function additem) async {
           ),
           TextButton(
             onPressed: () {
-              // Call the addItem function and pass the new item.
-              additem(newItem);
-              Navigator.pushReplacementNamed(context, '/home');
+              if(newItem["item"]==""||newItem["amount"]==0.0)
+                error(context);
+              else// Call the addItem function and pass the new item.
+                  {
+                additem(newItem);
+                Navigator.pushReplacementNamed(context, '/home');
+              }
             },
             child: const Text('Add'),
           ),

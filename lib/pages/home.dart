@@ -80,7 +80,7 @@ class _homeState extends State<home> {var widget_list;
 
              const expanses_page(),
             ExpenseContainer( ),
-            const profile(),
+             Profile(),
 
 
           ],

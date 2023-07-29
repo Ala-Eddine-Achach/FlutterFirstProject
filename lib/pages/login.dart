@@ -21,13 +21,7 @@ class _loginState extends State<login> {
           },
         ),
         title: const Center(child: Text("MASROUFEK")),
-        actions: [
-          Switch(
-              value: themeManager.themeMode == ThemeMode.dark,
-              onChanged: (newValue) {
-                themeManager.toggletheme(newValue);
-              }),
-        ],
+
       ),
       body:  SingleChildScrollView(
         child: Center(
