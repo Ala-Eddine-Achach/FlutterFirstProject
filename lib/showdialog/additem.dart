@@ -21,7 +21,7 @@ Future<void> AddItem(BuildContext context,Function additem) async {
       return AlertDialog(
         elevation: 50,
         backgroundColor: Color.lerp(Colors.white,
-            Theme.of(context).scaffoldBackgroundColor, 0.3),
+            Theme.of(context).scaffoldBackgroundColor, 0.5),
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(12.0),
         ),
@@ -44,19 +44,29 @@ Future<void> AddItem(BuildContext context,Function additem) async {
               const SizedBox(height: 16.0),
               TextField(maxLength: 30,
                 maxLines: 1,
-                decoration: const InputDecoration(
+                decoration:  InputDecoration(
                   labelText: 'Item',
                   border: OutlineInputBorder(),
-                  fillColor: Colors.black,
+                  fillColor: (Theme.of(context).brightness == Brightness.dark
+                      ? Colors.white
+                      : Colors.black),
+                  labelStyle:TextStyle(color: (Theme.of(context).brightness == Brightness.dark
+                      ? Colors.white
+                      : Colors.black),)
                 ),
                 onChanged: (value) => newItem['item'] = value,
               ),
               const SizedBox(height: 16.0),
               TextField(
-                decoration: const InputDecoration(
+                decoration:  InputDecoration(
                   labelText: 'Amount',
+                    labelStyle:TextStyle(color: (Theme.of(context).brightness == Brightness.dark
+                    ? Colors.white
+                    : Colors.black),),
                   border: OutlineInputBorder(),
-                  fillColor: Colors.black,
+                  fillColor: (Theme.of(context).brightness == Brightness.dark
+                      ? Colors.white
+                      : Colors.black),
                 ),
                 maxLength: 5,
                 keyboardType: TextInputType.number,
@@ -104,7 +114,7 @@ class _dropState extends State<drop> {
 
   @override
   Widget build(BuildContext context) {
-    return DropdownButton<String>(
+    return DropdownButton<String>(icon: Icon(Icons.list),
       value:widget.newItem['category'],
       items: cats.map<DropdownMenuItem<String>>((String value) {
         return DropdownMenuItem<String>(

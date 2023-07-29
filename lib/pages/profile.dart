@@ -20,7 +20,7 @@ class Profile extends StatelessWidget {
               fontSize: 36,
             )),
         Padding(
-          padding: const EdgeInsets.all(8.0),
+          padding: const EdgeInsets.all(10.0),
           child: Container(
             height: height * 0.6,
             child: LayoutBuilder(
@@ -35,6 +35,7 @@ class Profile extends StatelessWidget {
                     child: Container(
                       height: innerHeight * 0.65,
                       width: innerWidth,
+                      margin: EdgeInsets.all(5),
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(30),
                         color: (Theme.of(context).brightness == Brightness.dark

@@ -42,7 +42,7 @@ class ExpenseContainer extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: <Widget>[
                   Container(
-                    child: Column(
+                    child: Column(mainAxisAlignment: MainAxisAlignment.spaceAround,
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: <Widget>[
                         Text(
@@ -114,7 +114,7 @@ class ExpenseContainer extends StatelessWidget {
             ]),
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 20.0, vertical: 6),
-          child: Column(
+          child: Column( mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Container(
                 alignment: Alignment.center,

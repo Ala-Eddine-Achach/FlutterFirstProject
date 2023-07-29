@@ -30,7 +30,7 @@ Future<void> delete_item(BuildContext context,Function delete) {
           ),
           child: const Text('NO'),
           onPressed: () {
-            Navigator.pushReplacementNamed(context, '/home');
+            Navigator.pop(context);
           },
         ),],
     );}
