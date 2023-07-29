@@ -19,9 +19,9 @@ Future<void> delete_item(BuildContext context,Function delete) {
         ),
         child: const Text('YES'),
         onPressed: () {
-                 delete;
+                 delete();
 
-           Navigator.of(context).pop();
+                 Navigator.pushReplacementNamed(context, '/home');
         },
       ),
         TextButton(
@@ -30,7 +30,7 @@ Future<void> delete_item(BuildContext context,Function delete) {
           ),
           child: const Text('NO'),
           onPressed: () {
-            Navigator.of(context).pop();
+            Navigator.pushReplacementNamed(context, '/home');
           },
         ),],
     );}

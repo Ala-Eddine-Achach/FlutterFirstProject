@@ -38,27 +38,7 @@ Future<void> AddItem(BuildContext context,Function additem) async {
                   borderRadius: BorderRadius.circular(8.0),
                   border: Border.all(color: Colors.grey),
                 ),
-                child: DropdownButton<String>(
-                  value: newItem["category"],
-                  items: cats.map<DropdownMenuItem<String>>((String value) {
-                    return DropdownMenuItem<String>(
-                      value: value,
-                      child: Row(
-                        children: [Icon(icons[value]),
-                          Text(value)
-                        ],
-                      ),
-                    );
-                  }).toList(),
-                  onChanged: (String? value) {
-                    if (value != null) {
-                      // seUpdate the selected category.
-                      newItem['category'] = value;
-                    }
-                  },
-                  underline: const SizedBox.shrink(),
-                  isExpanded: true,
-                ),
+                child: drop(newItem: newItem,)
               ),
               const SizedBox(height: 16.0),
               TextField(maxLength: 30,
@@ -98,7 +78,7 @@ Future<void> AddItem(BuildContext context,Function additem) async {
             onPressed: () {
               // Call the addItem function and pass the new item.
               additem(newItem);
-              Navigator.of(context).pop();
+              Navigator.pushReplacementNamed(context, '/home');
             },
             child: const Text('Add'),
           ),
@@ -106,4 +86,41 @@ Future<void> AddItem(BuildContext context,Function additem) async {
       );
     },
   );
+}
+class drop extends StatefulWidget {
+  Map<String, dynamic> newItem;
+   drop({super.key,required this.newItem});
+
+  @override
+  State<drop> createState() => _dropState();
+}
+
+class _dropState extends State<drop> {
+
+  @override
+  Widget build(BuildContext context) {
+    return DropdownButton<String>(
+      value:widget.newItem['category'],
+      items: cats.map<DropdownMenuItem<String>>((String value) {
+        return DropdownMenuItem<String>(
+          value: value,
+          child: Row(
+            children: [Icon(icons[value]),
+              Text(value)
+            ],
+          ),
+        );
+      }).toList(),
+      onChanged: (String? value) {
+        if (value != null) {setState(()
+          //se seUpdate the selected category.
+          {
+            widget.newItem['category'] = value;
+          });
+        }
+      },
+      underline: const SizedBox.shrink(),
+      isExpanded: true,
+    );
+  }
 }

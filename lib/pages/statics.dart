@@ -8,8 +8,17 @@ import '../expenses/list.dart';
 
 class ExpenseContainer extends StatelessWidget {
   var sal = Salary;
-  var spent = getSumOfAmounts(exp_list);
 
+  double getSumOfAmounts(List<Map<String, dynamic>> exp_list,
+      {String cat = "all"}) {
+    double sum_of_amounts = 0.0;
+    for (Map<String, dynamic> exp in exp_list) {
+      if ((cat == "all") ? true : exp["category"] == cat)
+        sum_of_amounts += exp["amount"];
+    }
+    return sum_of_amounts;
+  }
+  get spent => getSumOfAmounts(exp_list);
   ExpenseContainer({super.key});
 
   @override

@@ -16,7 +16,7 @@ List<String> titles = <String>[
   'about',
 ];
 
-var widget_list=(exp_list.map((e)=>Expanses(item:e))).toList();
+
 class home extends StatefulWidget {
   const home({super.key});
 
@@ -28,8 +28,8 @@ class _homeState extends State<home> {var widget_list;
   get widjet_list=>(exp_list.map((e)=>Expanses(item:e))).toList();
   void addItem(Map<String, dynamic> newItem) {
     // Add the new item to the list.
-    setState(()=>{exp_list.add(newItem)});
-  }
+    setState(()=>{exp_list.insert(0, newItem)});}
+
   @override
   Widget build(BuildContext context) {
 

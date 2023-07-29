@@ -50,6 +50,7 @@ class _loginState extends State<login> {
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 25.0),
                 child: TextField(
+                  style: TextStyle(color: Colors.black),
 
                   decoration: InputDecoration(
                       enabledBorder: const OutlineInputBorder(
@@ -71,7 +72,7 @@ class _loginState extends State<login> {
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 25.0),
                 child: TextField(
-
+                  style: TextStyle(color: Colors.black),
                   obscureText: true,
                   decoration: InputDecoration(
                       enabledBorder: const OutlineInputBorder(

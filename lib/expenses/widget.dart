@@ -19,7 +19,7 @@ class _ExpansesState extends State<Expanses> {
   void delete() {
     // Add the new item to the list.
     setState(() {
-      exp_list.remove(widget.item);Navigator.pushReplacementNamed(context, '/home');print("\n\n\n\nhiiiiiiiiiii\n\n\n\n");
+      exp_list.remove(widget.item);
     });
   }
   @override
@@ -120,8 +120,17 @@ class static_expenses extends StatefulWidget {
 }
 
 class _static_expensesState extends State<static_expenses> {
+  double getSumOfAmounts(List<Map<String, dynamic>> exp_list,
+      {String cat = "all"}) {
+    double sum_of_amounts = 0.0;
+    for (Map<String, dynamic> exp in exp_list) {
+      if ((cat == "all") ? true : exp["category"] == cat)
+        sum_of_amounts += exp["amount"];
+    }
+    return sum_of_amounts;
+  }
   late int i;
-  double sum = 0;
+  get sum =>getSumOfAmounts(exp_list, cat: cats[i]);
   List a=[
     Colors.green,
     Colors.blue,
@@ -134,7 +143,6 @@ class _static_expensesState extends State<static_expenses> {
   void initState() {
     super.initState();
     i = widget.i;
-    sum = getSumOfAmounts(exp_list, cat: cats[i]);
      x=a[Random().nextInt(a.length)];
   }
 

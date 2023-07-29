@@ -2,7 +2,7 @@ import 'dart:core';
 
 import 'package:flutter/material.dart';
 
-double Salary = 6000.0;
+double Salary = 5000.0;
 
 List<Map<String, dynamic>> exp_list = [
   {
@@ -192,12 +192,4 @@ List<String> cats = [
 ];
 List<double> pourcent = [0.14, 0.08, 0.14, 0.12, 0.28, 0.16];
 
-double getSumOfAmounts(List<Map<String, dynamic>> exp_list,
-    {String cat = "all"}) {
-  double sum_of_amounts = 0.0;
-  for (Map<String, dynamic> exp in exp_list) {
-    if ((cat == "all") ? true : exp["category"] == cat)
-      sum_of_amounts += exp["amount"];
-  }
-  return sum_of_amounts;
-}
+
