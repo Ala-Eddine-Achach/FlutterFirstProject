@@ -6,26 +6,27 @@ import 'package:syncfusion_flutter_charts/charts.dart';
 import '../expenses/list.dart';
 
 class ExpenseContainer extends StatefulWidget {
-  ExpenseContainer({super.key});
+  const ExpenseContainer({super.key});
 
   @override
   State<ExpenseContainer> createState() => _ExpenseContainerState();
 }
 
 class _ExpenseContainerState extends State<ExpenseContainer> {
-  final sal = Salary;
+  final sal = salary;
 
   double getSumOfAmounts(List<Map<String, dynamic>> exp_list,
       {String cat = "all"}) {
-    double sum_of_amounts = 0.0;
+    double sumOfAmounts = 0.0;
     for (Map<String, dynamic> exp in exp_list) {
-      if ((cat == "all") ? true : exp["category"] == cat)
-        sum_of_amounts += exp["amount"];
+      if ((cat == "all") ? true : exp["category"] == cat) {
+        sumOfAmounts += exp["amount"];
+      }
     }
-    return sum_of_amounts;
+    return sumOfAmounts;
   }
 
-  get spent => getSumOfAmounts(exp_list);
+  get spent => getSumOfAmounts(expList);
 
   ScrollController controller = ScrollController();
 
@@ -104,23 +105,23 @@ class _ExpenseContainerState extends State<ExpenseContainer> {
                           Text(
                             "\$ ${spent.toStringAsFixed(1)}",
                             style:  TextStyle(
-                                fontSize: (spent>Salary)?30:28,
-                                color: (spent>Salary)?Colors.red:Colors.black87,
+                                fontSize: (spent>salary)?30:28,
+                                color: (spent>salary)?Colors.red:Colors.black87,
                                 fontWeight: FontWeight.bold),
                           )
                         ],
                       ),
                       CircularPercentIndicator(
                         radius: 70,
-                        lineWidth: (spent>Salary)?27:20,
-                        percent: (spent>Salary)?1:spent / sal,
+                        lineWidth: (spent>salary)?27:20,
+                        percent: (spent>salary)?1:spent / sal,
                         backgroundColor: Theme.of(context).scaffoldBackgroundColor,
-                        progressColor: (spent>Salary)?Colors.redAccent:Color.lerp(Colors.orange,
+                        progressColor: (spent>salary)?Colors.redAccent:Color.lerp(Colors.orange,
                             Theme.of(context).scaffoldBackgroundColor, 0.5),
                         circularStrokeCap: CircularStrokeCap.round,
                         center: Column(mainAxisAlignment: MainAxisAlignment.center,
                           children: [
-                            (spent>Salary)?Icon(Icons.error,color:Colors.redAccent):SizedBox(),
+                            (spent>salary)?const Icon(Icons.error,color:Colors.redAccent):const SizedBox(),
                             Text(
                               "${(100 * spent / sal).toStringAsFixed(1)}%",
                               style: TextStyle(
@@ -176,7 +177,7 @@ class _ExpenseContainerState extends State<ExpenseContainer> {
                       animationDelay: 1,
                       dataSource: (cats.map((e) => {
                             "cat": e,
-                            "amount": getSumOfAmounts(exp_list, cat: e),
+                            "amount": getSumOfAmounts(expList, cat: e),
                           })).toList(),
                       xValueMapper: (var data, _) => data["cat"],
                       yValueMapper: (var data, _) =>
@@ -189,15 +190,13 @@ class _ExpenseContainerState extends State<ExpenseContainer> {
                   ],
                 ),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 40,
               ),
-              Container(
-                child: Column(
-                  children:
-                      (cats.map((e) => (static_expenses(j: cats.indexOf(e)))))
-                          .toList(),
-                ),
+              Column(
+                children:
+                    (cats.map((e) => (static_expenses(j: cats.indexOf(e)))))
+                        .toList(),
               ),
             ],
           ),

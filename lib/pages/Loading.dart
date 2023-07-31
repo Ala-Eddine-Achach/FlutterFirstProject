@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
-class loading extends StatefulWidget {
-  const loading({super.key});
+class Loading extends StatefulWidget {
+  const Loading({super.key});
 
   @override
-  State<loading> createState() => _loadingState();
+  State<Loading> createState() => _LoadingState();
 }
 
-class _loadingState extends State<loading> {
+class _LoadingState extends State<Loading> {
   @override
   @override
   void initState() {

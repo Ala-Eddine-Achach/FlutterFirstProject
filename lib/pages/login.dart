@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 
-class login extends StatefulWidget {
-  const login({super.key});
+class Login extends StatefulWidget {
+  const Login({super.key});
 
   @override
-  State<login> createState() => _loginState();
+  State<Login> createState() => _LoginState();
 }
 
-class _loginState extends State<login> {
+class _LoginState extends State<Login> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -25,9 +25,9 @@ class _loginState extends State<login> {
         child: Center(
           child: Column(
             children: [
-              SizedBox(height: 14,),
+              const SizedBox(height: 14,),
               Icon(Icons.lock,size: 115,color: Colors.grey.shade700,),
-              SizedBox(height: 14,),
+              const SizedBox(height: 14,),
               Text(
                 'Welcome back you\'ve been missed!',
                 style: TextStyle(
@@ -42,7 +42,7 @@ class _loginState extends State<login> {
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 25.0),
                 child: TextField(
-                  style: TextStyle(color: Colors.black),
+                  style: const TextStyle(color: Colors.black),
 
                   decoration: InputDecoration(
                       enabledBorder: const OutlineInputBorder(
@@ -64,7 +64,7 @@ class _loginState extends State<login> {
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 25.0),
                 child: TextField(
-                  style: TextStyle(color: Colors.black),
+                  style: const TextStyle(color: Colors.black),
                   obscureText: true,
                   decoration: InputDecoration(
                       enabledBorder: const OutlineInputBorder(

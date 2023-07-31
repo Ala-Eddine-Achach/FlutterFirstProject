@@ -3,14 +3,14 @@ import 'package:projecttest/expenses/list.dart';
 
 import '../expenses/widget.dart';
 
-class Expanses_Page extends StatefulWidget {
-  const Expanses_Page({super.key});
+class ExpansesPage extends StatefulWidget {
+  const ExpansesPage({super.key});
 
   @override
-  State<Expanses_Page> createState() => _Expanses_PageState();
+  State<ExpansesPage> createState() => _ExpansesPageState();
 }
 
-class _Expanses_PageState extends State<Expanses_Page> {
+class _ExpansesPageState extends State<ExpansesPage> {
   ScrollController controller = ScrollController();
   double topContainer = 0;
   @override
@@ -29,7 +29,7 @@ class _Expanses_PageState extends State<Expanses_Page> {
   Widget build(BuildContext context) {
     return ListView.builder(
       controller:controller ,
-      itemCount: exp_list.length,
+      itemCount: expList.length,
      physics: const BouncingScrollPhysics(),
       itemBuilder: (context, index) {
         double scale = 1;
@@ -41,7 +41,7 @@ class _Expanses_PageState extends State<Expanses_Page> {
             scale = 1;
           }
 
-        final e = exp_list[index];
+        final e = expList[index];
         return Opacity(
           opacity: scale,
           child: Transform(

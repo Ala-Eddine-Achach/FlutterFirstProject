@@ -2,12 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class Profile extends StatelessWidget {
+  const Profile({super.key});
+
   @override
   Widget build(BuildContext context) {
     double height = MediaQuery.of(context).size.height;
     return ListView(
       //mainAxisAlignment: MainAxisAlignment.spaceBetween,
-      children: [SizedBox(
+      children: [const SizedBox(
         height: 20,
       ),
         Text("My profile",
@@ -25,15 +27,15 @@ class Profile extends StatelessWidget {
 
         Column(
           children: [
-            SizedBox(height: 160,),
+            const SizedBox(height: 160,),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 10),
-              child: Container(
+              child: SizedBox(
                 height: height * 0.6,
                 child:Column(children: [
                       Container(
 
-                        margin: EdgeInsets.all(5),
+                        margin: const EdgeInsets.all(5),
                         decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(30),
                           color: (Theme.of(context).brightness == Brightness.dark
@@ -49,7 +51,7 @@ class Profile extends StatelessWidget {
                             Text(
                               'Ala Eddine Achach',
                               style: GoogleFonts.alegreya(
-                                color: Color.fromRGBO(39, 105, 171, 1),
+                                color: const Color.fromRGBO(39, 105, 171, 1),
                                 fontSize: 37,
                               ),
                             ),
@@ -69,7 +71,7 @@ class Profile extends StatelessWidget {
                                 fontSize: 17,
                               ),
                             ),
-                            SizedBox(
+                            const SizedBox(
                               height: 5,
                             ),
                             Row(
@@ -86,7 +88,7 @@ class Profile extends StatelessWidget {
                                         fontSize: 25,
                                       ),
                                     ),
-                                    SizedBox(
+                                    const SizedBox(
                                       height: 10,
                                     ),
                                     const Text(

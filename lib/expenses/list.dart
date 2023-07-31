@@ -2,9 +2,9 @@ import 'dart:core';
 
 import 'package:flutter/material.dart';
 
-double Salary = 5000.0;
+double salary = 5000.0;
 
-List<Map<String, dynamic>> exp_list = [
+List<Map<String, dynamic>> expList = [
   {
     "category": "transportation",
     "item": "changing the wheel",

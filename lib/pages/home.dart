@@ -24,11 +24,11 @@ class Home extends StatefulWidget {
 class _HomeState extends State<Home> {
   var widget_list;
 
-  get widjet_list => (exp_list.map((e) => Expanses(item: e))).toList();
+  get widjet_list => (expList.map((e) => Expanses(item: e))).toList();
 
   void addItem(Map<String, dynamic> newItem) {
     // Add the new item to the list.
-    setState(() => {exp_list.insert(0, newItem)});
+    setState(() => {expList.insert(0, newItem)});
   }
 
   @override
@@ -40,11 +40,6 @@ class _HomeState extends State<Home> {
 
   @override
   Widget build(BuildContext context) {
-    final ColorScheme colorScheme = Theme.of(context).colorScheme;
-    final Color oddItemColor = colorScheme.primary.withOpacity(0.05);
-    final Color evenItemColor = colorScheme.primary.withOpacity(0.15);
-    const int tabsCount = 3;
-
     return DefaultTabController(
       length: 3,
       initialIndex: 0,
@@ -82,9 +77,9 @@ class _HomeState extends State<Home> {
             ],
           ),
         ),
-        body: TabBarView(
+        body: const TabBarView(
           children: <Widget>[
-            Container(child: const Expanses_Page()),
+            ExpansesPage(),
             ExpenseContainer(),
             Profile(),
           ],

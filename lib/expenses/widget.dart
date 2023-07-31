@@ -19,7 +19,7 @@ class _ExpansesState extends State<Expanses> {
   void delete() {
     // Add the new item to the list.
     setState(() {
-      exp_list.remove(widget.item);
+      expList.remove(widget.item);
     });
   }
   @override
@@ -130,7 +130,7 @@ class _static_expensesState extends State<static_expenses> {
     return sum_of_amounts;
   }
   late int i;
-  get sum =>getSumOfAmounts(exp_list, cat: cats[i]);
+  get sum =>getSumOfAmounts(expList, cat: cats[i]);
   List a=[
     Colors.green,
     Colors.blue,
@@ -161,17 +161,17 @@ class _static_expensesState extends State<static_expenses> {
                 Text(overflow: TextOverflow.ellipsis,
                   cats[i],
                   style: TextStyle(
-                      fontSize: (sum>(pourcent[widget.i] * Salary))?30:20,
-                      color:(sum>(pourcent[widget.i] * Salary))?Colors.red: ((Theme.of(context).brightness == Brightness.dark
+                      fontSize: (sum>(pourcent[widget.i] * salary))?30:20,
+                      color:(sum>(pourcent[widget.i] * salary))?Colors.red: ((Theme.of(context).brightness == Brightness.dark
                           ? Colors.teal
                           : Colors.blueGrey))),
 
                 ),
                 Text(overflow: TextOverflow.ellipsis,
-                  "\$${sum.toStringAsFixed(1)}/\n       \$${(pourcent[i] * Salary).toStringAsFixed(1)}",
+                  "\$${sum.toStringAsFixed(1)}/\n       \$${(pourcent[i] * salary).toStringAsFixed(1)}",
                   style: TextStyle(
                       fontSize: 14,
-                      color: (sum>(pourcent[widget.i] * Salary))?Colors.red:((Theme.of(context).brightness == Brightness.dark
+                      color: (sum>(pourcent[widget.i] * salary))?Colors.red:((Theme.of(context).brightness == Brightness.dark
                           ? Colors.teal
                           : Colors.blueGrey))),
                 ),
@@ -179,11 +179,11 @@ class _static_expensesState extends State<static_expenses> {
             ),
             Container(
               child: LinearPercentIndicator(
-                percent: (sum>(pourcent[widget.i] * Salary))?1:sum / (pourcent[widget.i] * Salary),
+                percent: (sum>(pourcent[widget.i] * salary))?1:sum / (pourcent[widget.i] * salary),
                 width: 300.0,
-                lineHeight:(sum>(pourcent[widget.i] * Salary))?15: 10,
+                lineHeight:(sum>(pourcent[widget.i] * salary))?15: 10,
                 barRadius: Radius.circular(5.0),
-                progressColor: (sum>(pourcent[widget.i] * Salary))?Colors.red: x,
+                progressColor: (sum>(pourcent[widget.i] * salary))?Colors.red: x,
                 backgroundColor: Theme.of(context).scaffoldBackgroundColor,
               ),
             ),
