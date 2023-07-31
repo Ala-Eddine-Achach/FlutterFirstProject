@@ -84,7 +84,7 @@ class _HomeState extends State<Home> {
         ),
         body: TabBarView(
           children: <Widget>[
-            const Expanses_Page(),
+            Container(child: const Expanses_Page()),
             ExpenseContainer(),
             Profile(),
           ],

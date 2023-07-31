@@ -31,7 +31,7 @@ class _ExpansesState extends State<Expanses> {
       child: Container(
 
           height: 96,
-          margin: const EdgeInsets.symmetric(horizontal: 15, vertical: 8),
+          margin: const EdgeInsets.symmetric(horizontal: 15, vertical: 10),
           decoration: BoxDecoration(
               borderRadius: BorderRadius.all(Radius.circular(20.0)),
               color: (Theme.of(context).brightness == Brightness.dark
@@ -161,29 +161,29 @@ class _static_expensesState extends State<static_expenses> {
                 Text(overflow: TextOverflow.ellipsis,
                   cats[i],
                   style: TextStyle(
-                      fontSize: 20,
-                      color: (Theme.of(context).brightness == Brightness.dark
+                      fontSize: (sum>(pourcent[widget.i] * Salary))?30:20,
+                      color:(sum>(pourcent[widget.i] * Salary))?Colors.red: ((Theme.of(context).brightness == Brightness.dark
                           ? Colors.teal
-                          : Colors.blueGrey)),
+                          : Colors.blueGrey))),
 
                 ),
                 Text(overflow: TextOverflow.ellipsis,
                   "\$${sum.toStringAsFixed(1)}/\n       \$${(pourcent[i] * Salary).toStringAsFixed(1)}",
                   style: TextStyle(
                       fontSize: 14,
-                      color: (Theme.of(context).brightness == Brightness.dark
+                      color: (sum>(pourcent[widget.i] * Salary))?Colors.red:((Theme.of(context).brightness == Brightness.dark
                           ? Colors.teal
-                          : Colors.blueGrey)),
+                          : Colors.blueGrey))),
                 ),
               ],
             ),
             Container(
               child: LinearPercentIndicator(
-                percent: sum / (pourcent[widget.i] * Salary),
+                percent: (sum>(pourcent[widget.i] * Salary))?1:sum / (pourcent[widget.i] * Salary),
                 width: 300.0,
-                lineHeight: 10,
+                lineHeight:(sum>(pourcent[widget.i] * Salary))?15: 10,
                 barRadius: Radius.circular(5.0),
-                progressColor:  x,
+                progressColor: (sum>(pourcent[widget.i] * Salary))?Colors.red: x,
                 backgroundColor: Theme.of(context).scaffoldBackgroundColor,
               ),
             ),
