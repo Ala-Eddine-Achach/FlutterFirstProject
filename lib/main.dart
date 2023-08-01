@@ -5,6 +5,7 @@ import 'package:projecttest/temes_/themesdata.dart';
 
 import 'pages/Loading.dart';
 import 'pages/login.dart';
+import 'pages/opening.dart';
 
 void main() => runApp(MyApp());
 class MyApp extends StatefulWidget {
@@ -47,6 +48,7 @@ class _MyAppState extends State<MyApp> {
           '/home': (context) => const Home(),
           '/location': (context) => const Loading(),
           '/login': (context) => const Login(),
+          '/opening': (context) => const Opening(),
         });
   }
 }

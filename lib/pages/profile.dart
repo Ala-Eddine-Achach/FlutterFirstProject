@@ -20,6 +20,7 @@ class Profile extends StatelessWidget {
                   : Colors.black),
               fontSize: 36,
             )),
+        SizedBox(height: 30,),
         Stack(
         fit: StackFit.loose,
         alignment: Alignment.topCenter,
@@ -31,7 +32,7 @@ class Profile extends StatelessWidget {
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 10),
               child: SizedBox(
-                height: height * 0.6,
+                height: height * 0.7,
                 child:Column(children: [
                       Container(
 
@@ -75,7 +76,7 @@ class Profile extends StatelessWidget {
                               height: 5,
                             ),
                             Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceAround,
+                              mainAxisAlignment: MainAxisAlignment.center,
                               children: [
                                 Column(
                                   mainAxisAlignment:
@@ -162,7 +163,7 @@ class Profile extends StatelessWidget {
               height: 200, // Set your desired height here
               child: ClipOval(
                 child: Image.asset(
-                  'images/profile.png',
+                  'assests/images/profile.png',
                   fit: BoxFit.cover,
                 ),
               ),

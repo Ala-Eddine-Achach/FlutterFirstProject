@@ -40,6 +40,7 @@ dependencies:
   syncfusion_flutter_charts: ^22.1.39
   flutter_vector_icons:
   google_fonts: ^5.1.0
+  rive: ^0.11.8
 
 dev_dependencies:
 
@@ -67,9 +68,11 @@ flutter:
 
   # To add assets to your application, add an assets section, like this:
   assets:
-     - images/google.png
-     - images/fb.png
-     - images/profile.png
+     - assests/images/google.png
+     - assests/images/fb.png
+     - assests/images/profile.png
+     - assests/money.riv
+     - assests/login.riv
 
 
   # An image asset can refer to one or more resolution-specific "variants", see
