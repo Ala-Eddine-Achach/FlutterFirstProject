@@ -41,7 +41,13 @@ dependencies:
   flutter_vector_icons:
   google_fonts: ^5.1.0
   rive: ^0.11.8
-
+  flutter_native_splash: ^2.3.1
+flutter_native_splash:
+  android:true
+  ios:true
+  web:false
+  background_image:"assests/images/bg.png"
+  image:"app/src/main/res/mipmap-xxxhdpi/ic_launcher.pngc"
 dev_dependencies:
 
   flutter_test:
