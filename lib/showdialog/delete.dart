@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:projecttest/expenses/hive.dart';
 
 import '../expenses/list.dart';
 
-Future<void> delete_item(BuildContext context,Function delete) {
+Future<void> delete_item(BuildContext context,key) {
   return showDialog<void>(
       context: context,
       builder: (BuildContext context) {
@@ -18,8 +19,8 @@ Future<void> delete_item(BuildContext context,Function delete) {
           textStyle: Theme.of(context).textTheme.labelLarge,
         ),
         child: const Text('YES'),
-        onPressed: () {
-                 delete();
+        onPressed: () async {
+                 await delexp(key);
 
                  Navigator.pushReplacementNamed(context, '/home');
         },

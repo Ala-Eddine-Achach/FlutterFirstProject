@@ -1,13 +1,19 @@
 import 'package:flutter/material.dart';
+import 'package:projecttest/expenses/widget.dart';
 import 'package:projecttest/pages/home.dart';
 import 'package:projecttest/temes_/theme_manager.dart';
 import 'package:projecttest/temes_/themesdata.dart';
-
+import 'expenses/hive.dart';
 import 'pages/Loading.dart';
 import 'pages/login.dart';
-import 'pages/opening.dart';
 
-void main() => runApp(MyApp());
+import 'package:hive_flutter/hive_flutter.dart';
+Future<void> main()  async {
+  await Hive.initFlutter();
+  Hive.registerAdapter<Expense>(ExpenseAdapter());
+  var data =await Hive.openBox("data");
+  var box = await Hive.openBox<Expense>("Expanses");
+runApp(MyApp());}
 class MyApp extends StatefulWidget {
   const MyApp({super.key});
 
@@ -48,7 +54,6 @@ class _MyAppState extends State<MyApp> {
           '/home': (context) => const Home(),
           '/location': (context) => const Loading(),
           '/login': (context) => const Login(),
-          '/opening': (context) => const Opening(),
         });
   }
 }

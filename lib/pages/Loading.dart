@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
+import 'package:hive_flutter/hive_flutter.dart';
+import 'package:projecttest/expenses/hive.dart';
+import 'package:projecttest/expenses/list.dart';
 class Loading extends StatefulWidget {
   const Loading({super.key});
 
@@ -17,6 +20,26 @@ class _LoadingState extends State<Loading> {
   }
 
   Future<void> navigateToHomePage() async {
+    print("c");
+    var data = Hive.box("data");
+    if (data.isEmpty) {
+      print("d");
+      for (var element in expList) {
+        print("a");
+        await addexp(
+          element["category"],
+          element["item"],
+          element["amount"],
+          DateTime.parse(element["day"]),
+        );
+      }
+      data.put("firstTime", false);
+
+    }else {
+      var box =  Hive.box<Expense>("Expanses");
+      expmap= box.toMap().map((key, value) =>  MapEntry(key, value.toMap()));
+    }
+
     await Future.delayed(const Duration(seconds: 3));
     Navigator.pushReplacementNamed(context, '/home');
   }

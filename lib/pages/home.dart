@@ -22,14 +22,7 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
-  var widget_list;
 
-  get widjet_list => (expList.map((e) => Expanses(item: e))).toList();
-
-  void addItem(Map<String, dynamic> newItem) {
-    // Add the new item to the list.
-    setState(() => {expList.insert(0, newItem)});
-  }
 
   @override
   void initState() {
@@ -61,17 +54,18 @@ class _HomeState extends State<Home> {
 
           ],
           bottom: TabBar(
+            indicatorWeight: 3,
             tabs: <Widget>[
-              Tab(
-                icon: const Icon(Icons.list),
+              Tab(height: 65,
+                icon: const Icon(Icons.list,size:20,),
                 text: titles[0],
               ),
-              Tab(
-                icon: const Icon(IconData(0xee51, fontFamily: 'MaterialIcons')),
+              Tab(height: 65,
+                icon: const Icon(IconData(0xee51, fontFamily: 'MaterialIcons'),size:20),
                 text: titles[1],
               ),
-              Tab(
-                icon: const Icon(Icons.person),
+              Tab(height: 65,
+                icon: const Icon(Icons.person,size:20),
                 text: titles[2],
               ),
             ],
@@ -87,7 +81,7 @@ class _HomeState extends State<Home> {
         floatingActionButton: FloatingActionButton(
           child:const Icon(Icons.plus_one),
           onPressed: () { setState(() {
-            AddItem(context,addItem) ;
+            AddItem(context) ;
             });},
 
         ),

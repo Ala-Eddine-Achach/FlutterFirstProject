@@ -29,14 +29,13 @@ class Profile extends StatelessWidget {
         Column(
           children: [
             const SizedBox(height: 160,),
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 10),
+            FittedBox(
               child: SizedBox(
                 height: height * 0.7,
                 child:Column(children: [
                       Container(
 
-                        margin: const EdgeInsets.all(5),
+                       padding: const EdgeInsets.all(15),
                         decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(30),
                           color: (Theme.of(context).brightness == Brightness.dark
@@ -154,7 +153,7 @@ class Profile extends StatelessWidget {
                     ])
                   ,
                 ),
-              ),
+            ),
           ],
         ),
           Center(

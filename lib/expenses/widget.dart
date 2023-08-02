@@ -8,24 +8,18 @@ import 'list.dart';
 
 class Expanses extends StatefulWidget {
   final Map<String, dynamic> item;
-
-  const Expanses({Key? key, required this.item}) : super(key: key);
+  final i;
+  const Expanses({Key? key,required this.i, required this.item}) : super(key: key);
 
   @override
   State<Expanses> createState() => _ExpansesState();
 }
 
 class _ExpansesState extends State<Expanses> {
-  void delete() {
-    // Add the new item to the list.
-    setState(() {
-      expList.remove(widget.item);
-    });
-  }
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onLongPress: ()=>{setState(()=>{ delete_item(context,delete)})}
+      onLongPress: ()=>{setState(()=>{ delete_item(context,widget.i)})}
 
       ,
       child: Container(
@@ -177,7 +171,7 @@ class _static_expensesState extends State<static_expenses> {
                 ),
               ],
             ),
-            Container(
+            FittedBox(
               child: LinearPercentIndicator(
                 percent: (sum>(pourcent[widget.i] * salary))?1:sum / (pourcent[widget.i] * salary),
                 width: 300.0,

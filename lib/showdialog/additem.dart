@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:projecttest/expenses/hive.dart';
 
 import '../expenses/list.dart';
 import 'ERRor.dart';
@@ -7,12 +8,12 @@ import 'ERRor.dart';
 
 
 
-Future<void> AddItem(BuildContext context,Function additem) async {
+Future<void> AddItem(BuildContext context) async {
   Map<String, dynamic> newItem = {
     "category": cats[0], // Default category is the first one in the list.
     "item": "",
     "amount": 0.0,
-    "day": DateTime.now().toIso8601String(),
+    "day": DateTime.now(),
   };
 
   await showDialog<void>(
@@ -86,12 +87,13 @@ Future<void> AddItem(BuildContext context,Function additem) async {
             child: const Text('Cancel'),
           ),
           TextButton(
-            onPressed: () {
+            onPressed: () async {
               if(newItem["item"]==""||newItem["amount"]==0.0)
                 error(context);
               else// Call the addItem function and pass the new item.
-                  {
-                additem(newItem);
+                  {print("am here");
+                await addexp(newItem["category"], newItem["item"], newItem["amount"],newItem["day"]);
+                print("kjn");
                 Navigator.pushReplacementNamed(context, '/home');
               }
             },

@@ -191,5 +191,3 @@ List<String> cats = [
   "other"
 ];
 List<double> pourcent = [0.14, 0.08, 0.14, 0.12, 0.28, 0.16];
-
-

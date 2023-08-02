@@ -55,86 +55,88 @@ class _ExpenseContainerState extends State<ExpenseContainer> {
       Opacity(  opacity: scale,
         child: Transform( transform:  Matrix4.identity()..scale(scale,scale),
           alignment: Alignment.bottomCenter,
-          child: Container(
-              height: 180,
-              margin: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
-              decoration: BoxDecoration(
-                  borderRadius: const BorderRadius.all(Radius.circular(20.0)),
-                  color: (Theme.of(context).brightness == Brightness.dark
-                      ? Colors.teal[50]
-                      : Colors.white),
-                  boxShadow: [
-                    BoxShadow(color: Colors.black.withAlpha(100), blurRadius: 10.0),
-                  ]),
-              child: Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 20.0, vertical: 6),
-                child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: <Widget>[
-                      Column(mainAxisAlignment: MainAxisAlignment.spaceAround,
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: <Widget>[
-                          Text(
-                            "YOUR SALARY",
-                            style: TextStyle(
-                                fontSize: 20,
-                                color: (Theme.of(context).brightness ==
-                                        Brightness.dark
-                                    ? Colors.teal
-                                    : Colors.blueGrey)),
-                          ),
-                          Text(
-                            "\$ $sal",
-                            style: const TextStyle(
-                                fontSize: 28,
-                                color: Colors.black87,
-                                fontWeight: FontWeight.bold),
-                          ),
-                          const SizedBox(
-                            height: 7,
-                          ),
-                          Text(
-                            "MONEY SPENT",
-                            style: TextStyle(
-                                fontSize: 20,
-                                color: (Theme.of(context).brightness ==
-                                        Brightness.dark
-                                    ? Colors.teal
-                                    : Colors.blueGrey)),
-                          ),
-                          Text(
-                            "\$ ${spent.toStringAsFixed(1)}",
-                            style:  TextStyle(
-                                fontSize: (spent>salary)?30:28,
-                                color: (spent>salary)?Colors.red:Colors.black87,
-                                fontWeight: FontWeight.bold),
-                          )
-                        ],
-                      ),
-                      CircularPercentIndicator(
-                        radius: 70,
-                        lineWidth: (spent>salary)?27:20,
-                        percent: (spent>salary)?1:spent / sal,
-                        backgroundColor: Theme.of(context).scaffoldBackgroundColor,
-                        progressColor: (spent>salary)?Colors.redAccent:Color.lerp(Colors.orange,
-                            Theme.of(context).scaffoldBackgroundColor, 0.5),
-                        circularStrokeCap: CircularStrokeCap.round,
-                        center: Column(mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            (spent>salary)?const Icon(Icons.error,color:Colors.redAccent):const SizedBox(),
+          child: FittedBox(
+            child: Container(
+                height: 180,
+                margin: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+                decoration: BoxDecoration(
+                    borderRadius: const BorderRadius.all(Radius.circular(20.0)),
+                    color: (Theme.of(context).brightness == Brightness.dark
+                        ? Colors.teal[50]
+                        : Colors.white),
+                    boxShadow: [
+                      BoxShadow(color: Colors.black.withAlpha(100), blurRadius: 10.0),
+                    ]),
+                child: Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 20.0, vertical: 6),
+                  child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: <Widget>[
+                        Column(mainAxisAlignment: MainAxisAlignment.spaceAround,
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: <Widget>[
                             Text(
-                              "${(100 * spent / sal).toStringAsFixed(1)}%",
+                              "YOUR SALARY",
                               style: TextStyle(
-                                fontSize: 18,
-                                color: Color.lerp(Colors.black,
-                                    Theme.of(context).scaffoldBackgroundColor, 0.5),
-                              ),
+                                  fontSize: 20,
+                                  color: (Theme.of(context).brightness ==
+                                          Brightness.dark
+                                      ? Colors.teal
+                                      : Colors.blueGrey)),
                             ),
+                            Text(
+                              "\$ $sal",
+                              style: const TextStyle(
+                                  fontSize: 28,
+                                  color: Colors.black87,
+                                  fontWeight: FontWeight.bold),
+                            ),
+                            const SizedBox(
+                              height: 7,
+                            ),
+                            Text(
+                              "MONEY SPENT",
+                              style: TextStyle(
+                                  fontSize: 20,
+                                  color: (Theme.of(context).brightness ==
+                                          Brightness.dark
+                                      ? Colors.teal
+                                      : Colors.blueGrey)),
+                            ),
+                            Text(
+                              "\$ ${spent.toStringAsFixed(1)}",
+                              style:  TextStyle(
+                                  fontSize: (spent>salary)?30:28,
+                                  color: (spent>salary)?Colors.red:Colors.black87,
+                                  fontWeight: FontWeight.bold),
+                            )
                           ],
                         ),
-                      )
-                    ]),
-              )),
+                        CircularPercentIndicator(
+                          radius: 70,
+                          lineWidth: (spent>salary)?27:20,
+                          percent: (spent>salary)?1:spent / sal,
+                          backgroundColor: Theme.of(context).scaffoldBackgroundColor,
+                          progressColor: (spent>salary)?Colors.redAccent:Color.lerp(Colors.orange,
+                              Theme.of(context).scaffoldBackgroundColor, 0.5),
+                          circularStrokeCap: CircularStrokeCap.round,
+                          center: Column(mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              (spent>salary)?const Icon(Icons.error,color:Colors.redAccent):const SizedBox(),
+                              Text(
+                                "${(100 * spent / sal).toStringAsFixed(1)}%",
+                                style: TextStyle(
+                                  fontSize: 18,
+                                  color: Color.lerp(Colors.black,
+                                      Theme.of(context).scaffoldBackgroundColor, 0.5),
+                                ),
+                              ),
+                            ],
+                          ),
+                        )
+                      ]),
+                )),
+          ),
         ),
       ),
       Container(
