@@ -2,9 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:projecttest/main.dart';
 import 'package:projecttest/pages/profile.dart';
 import 'package:projecttest/pages/statics.dart';
-
-import '../expenses/list.dart';
-import '../expenses/widget.dart';
 import '../showdialog/additem.dart';
 import 'listexp.dart';
 List<String> titles = <String>[
@@ -45,6 +42,9 @@ class _HomeState extends State<Home> {
           title: const Center(child: Text("MASROUFEK")),
           actions: [IconButton(onPressed: (){Navigator.pushReplacementNamed(context, '/login');}, icon: Icon(Icons.login_rounded)) ,
             Switch(
+              trackColor: trackColor,
+
+              thumbIcon:thumbIcon,
                 value: themeManager.themeMode == ThemeMode.dark,
                 onChanged: (newValue) {
                   setState(() {
@@ -90,4 +90,29 @@ class _HomeState extends State<Home> {
       );
 
   }
+
+  final MaterialStateProperty<Icon?> thumbIcon =
+  MaterialStateProperty.resolveWith<Icon?>(
+        (Set<MaterialState> states) {
+      if (states.contains(MaterialState.selected)) {
+        return const Icon(Icons.dark_mode,color: Colors.black,);
+      }
+      return const Icon(Icons.light_mode,color: Colors.pinkAccent,);
+    },
+  );
+
 }
+final MaterialStateProperty<Color?> trackColor =
+MaterialStateProperty.resolveWith<Color?>(
+      (Set<MaterialState> states) {
+    // Track color when the switch is selected.
+    if (states.contains(MaterialState.selected)) {
+      return Colors.grey[850];
+    }
+    // Otherwise return null to set default track color
+    // for remaining states such as when the switch is
+    // hovered, focused, or disabled.
+    return Colors.pinkAccent[100];
+  },
+);
+

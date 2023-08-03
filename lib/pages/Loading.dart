@@ -20,12 +20,9 @@ class _LoadingState extends State<Loading> {
   }
 
   Future<void> navigateToHomePage() async {
-    print("c");
     var data = Hive.box("data");
     if (data.isEmpty) {
-      print("d");
       for (var element in expList) {
-        print("a");
         await addexp(
           element["category"],
           element["item"],
@@ -39,7 +36,7 @@ class _LoadingState extends State<Loading> {
       var box =  Hive.box<Expense>("Expanses");
       expmap= box.toMap().map((key, value) =>  MapEntry(key, value.toMap()));
     }
-
+    if (await data.get("order")==null) data.put("order", "date inc");
     await Future.delayed(const Duration(seconds: 3));
     Navigator.pushReplacementNamed(context, '/home');
   }

@@ -91,7 +91,7 @@ class _LoginState extends State<Login> {
       body: Stack(
         alignment: Alignment.center,
         children: [
-          FittedBox(
+          const FittedBox(
               child: Icon(
             Icons.lock,
             size: 400,
@@ -104,10 +104,10 @@ class _LoginState extends State<Login> {
                   const SizedBox(
                     height: 14,
                   ),
-                  Container(
+                  SizedBox(
                     height: 200,
                     child: (_artboard == null)
-                        ? SizedBox()
+                        ? const SizedBox()
                         : Rive(
                             artboard: _artboard!,
                           ),
@@ -312,7 +312,7 @@ class _LoginState extends State<Login> {
                       ),
                     ],
                   ),
-                  SizedBox(height: 10,),
+                  const SizedBox(height: 10,),
                 ],
               ),
             ),

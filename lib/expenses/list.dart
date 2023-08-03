@@ -143,36 +143,7 @@ List<Map<String, dynamic>> expList = [
     "amount": 50.0,
     "day": "2023-08-09T00:00:00Z"
   },
-  {
-    "category": "food",
-    "item": "restaurant",
-    "amount": 60.0,
-    "day": "2023-08-10T00:00:00Z"
-  },
-  {
-    "category": "entertainment",
-    "item": "concert",
-    "amount": 100.0,
-    "day": "2023-08-11T00:00:00Z"
-  },
-  {
-    "category": "bills",
-    "item": "rent",
-    "amount": 1000.0,
-    "day": "2023-08-12T00:00:00Z"
-  },
-  {
-    "category": "food",
-    "item": "groceries",
-    "amount": 80.0,
-    "day": "2023-08-13T00:00:00Z"
-  },
-  {
-    "category": "transportation",
-    "item": "bus",
-    "amount": 10.0,
-    "day": "2023-08-14T00:00:00Z"
-  }
+
 ];
 Map<String, IconData> icons = {
   "food": Icons.fastfood,

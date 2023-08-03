@@ -1,4 +1,5 @@
 import 'dart:math';
+import 'package:projecttest/expenses/hive.dart';
 import 'package:projecttest/showdialog/delete.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
@@ -19,7 +20,7 @@ class _ExpansesState extends State<Expanses> {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onLongPress: ()=>{setState(()=>{ delete_item(context,widget.i)})}
+      onLongPress: ()=>{setState(()=> delete_item(context,widget.i))}
 
       ,
       child: Container(
@@ -101,7 +102,7 @@ class _ExpansesState extends State<Expanses> {
 }
 
 class static_expenses extends StatefulWidget {
-  int j;
+   int j;
 
   static_expenses({required this.j, super.key}) {
     this.j = j;
@@ -124,7 +125,7 @@ class _static_expensesState extends State<static_expenses> {
     return sum_of_amounts;
   }
   late int i;
-  get sum =>getSumOfAmounts(expList, cat: cats[i]);
+  get sum =>getSumOfAmounts(expmap.values.toList(), cat: cats[i]);
   List a=[
     Colors.green,
     Colors.blue,

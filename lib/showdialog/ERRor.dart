@@ -7,7 +7,7 @@ Future<void> error(
       context: context,
       builder: (BuildContext context) {
         return AlertDialog(
-          icon: Icon(Icons.dangerous_outlined,color: Colors.purpleAccent,size:60,),
+          icon: const Icon(Icons.dangerous_outlined,color: Colors.purpleAccent,size:60,),
           elevation: 30,
           backgroundColor: Color.lerp(
               Colors.red, Theme.of(context).scaffoldBackgroundColor, 0.3),

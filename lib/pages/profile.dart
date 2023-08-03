@@ -20,7 +20,7 @@ class Profile extends StatelessWidget {
                   : Colors.black),
               fontSize: 36,
             )),
-        SizedBox(height: 30,),
+        const SizedBox(height: 30,),
         Stack(
         fit: StackFit.loose,
         alignment: Alignment.topCenter,

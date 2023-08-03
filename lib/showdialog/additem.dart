@@ -1,4 +1,4 @@
-import 'package:flutter/cupertino.dart';
+
 import 'package:flutter/material.dart';
 import 'package:projecttest/expenses/hive.dart';
 
@@ -47,7 +47,7 @@ Future<void> AddItem(BuildContext context) async {
                 maxLines: 1,
                 decoration:  InputDecoration(
                   labelText: 'Item',
-                  border: OutlineInputBorder(),
+                  border: const OutlineInputBorder(),
                   fillColor: (Theme.of(context).brightness == Brightness.dark
                       ? Colors.white
                       : Colors.black),
@@ -64,7 +64,7 @@ Future<void> AddItem(BuildContext context) async {
                     labelStyle:TextStyle(color: (Theme.of(context).brightness == Brightness.dark
                     ? Colors.white
                     : Colors.black),),
-                  border: OutlineInputBorder(),
+                  border: const OutlineInputBorder(),
                   fillColor: (Theme.of(context).brightness == Brightness.dark
                       ? Colors.white
                       : Colors.black),
@@ -91,9 +91,8 @@ Future<void> AddItem(BuildContext context) async {
               if(newItem["item"]==""||newItem["amount"]==0.0)
                 error(context);
               else// Call the addItem function and pass the new item.
-                  {print("am here");
+                  {
                 await addexp(newItem["category"], newItem["item"], newItem["amount"],newItem["day"]);
-                print("kjn");
                 Navigator.pushReplacementNamed(context, '/home');
               }
             },

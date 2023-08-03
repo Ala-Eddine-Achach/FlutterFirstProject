@@ -68,8 +68,28 @@ Future<void> delexp(key) async {
   expmap.remove(key);
 
 }
-int compare( a, b){
-  return DateTime.parse(expmap[a]?['day']).compareTo(expmap[b]?['day']);
+int compare( a, b) {
+  var data = Hive.box("data");
+  String s = data.get("order");
+  if (s == "date inc") {
+    return DateTime.parse(expmap[b]?['day'])
+        .compareTo(DateTime.parse(expmap[a]?['day']));
+  } else if (s == "date dec") {
+    return DateTime.parse(expmap[a]?['day'])
+        .compareTo(DateTime.parse(expmap[b]?['day']));
+  } else if (s == "amount inc") {
+    var x = expmap[a]?['amount'] - expmap[b]?['amount'];
+    return (x < 0.01)
+        ? 0
+        : (x > 0)
+            ? 1
+            : -1;
+  } else {
+    var x = expmap[b]?['amount'] - expmap[a]?['amount'];
+    return (x < 0.01)
+        ? 0
+        : (x > 0)
+        ? 1
+        : -1;
+  }
 }
-
-

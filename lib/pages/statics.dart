@@ -3,6 +3,7 @@ import 'package:percent_indicator/percent_indicator.dart';
 import 'package:projecttest/expenses/widget.dart';
 import 'package:syncfusion_flutter_charts/charts.dart';
 
+import '../expenses/hive.dart';
 import '../expenses/list.dart';
 
 class ExpenseContainer extends StatefulWidget {
@@ -25,8 +26,8 @@ class _ExpenseContainerState extends State<ExpenseContainer> {
     }
     return sumOfAmounts;
   }
-
-  get spent => getSumOfAmounts(expList);
+  get list=>expmap.values.toList();
+  get spent => getSumOfAmounts(list);
 
   ScrollController controller = ScrollController();
 
@@ -179,7 +180,7 @@ class _ExpenseContainerState extends State<ExpenseContainer> {
                       animationDelay: 1,
                       dataSource: (cats.map((e) => {
                             "cat": e,
-                            "amount": getSumOfAmounts(expList, cat: e),
+                            "amount": getSumOfAmounts(list, cat: e),
                           })).toList(),
                       xValueMapper: (var data, _) => data["cat"],
                       yValueMapper: (var data, _) =>
